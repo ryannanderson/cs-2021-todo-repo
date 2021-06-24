@@ -70,29 +70,29 @@ app.get("/todo/:id", function (req, res) {
   });
 });
 
-app.get("/todo/:id/notes/:id", function (req, res) {
-  res.setHeader("Content-Type", "application/json");
-  var id = req.params.id
-  console.log(`getting todo with id: ${req.params.id}`);
-  Todo.findById(id, req.params.id, (err, todo) =>{
-  // check if there was an error
-  if (err) {
-      console.log(`There was an error finding a todo with id ${req.params.id}`)
-      res.status(500).json({
-              error: `Unable to find todo with id ${req.params.id}`,
-              error: err
-          });
-      return; 
-      } else if (todo === null) {
-      res.status(404).json({
-              message: `todo note with id: ${req.params.id} does not exist`,
-              error: err
-          })
-          return;
-  }
-    res.status(200).json(todo)
-});
-});
+// app.get("/todo/:id/notes/:id", function (req, res) {
+//   res.setHeader("Content-Type", "application/json");
+//   var id = req.params.id
+//   console.log(`getting todo with id: ${req.params.id}`);
+//   Todo.findById(id, req.params.id, (err, todo) =>{
+//   // check if there was an error
+//   if (err) {
+//       console.log(`There was an error finding a todo with id ${req.params.id}`)
+//       res.status(500).json({
+//               error: `Unable to find todo with id ${req.params.id}`,
+//               error: err
+//           });
+//       return; 
+//       } else if (todo === null) {
+//       res.status(404).json({
+//               message: `todo note with id: ${req.params.id} does not exist`,
+//               error: err
+//           })
+//           return;
+//   }
+//     res.status(200).json(todo)
+// });
+// });
 
 let nextID = 0;
 
@@ -155,7 +155,7 @@ app.post("/todo", function (req, res) {
       description: req.body.description || "",
       done: req.body.done || false,
       deadline: req.body.deadline || new Date(),
-      notes: req.body.notes || ""
+      // notes: req.body.notes || ""
   };
 
   Todo.create(creatingTodo, (err, todo) =>{
@@ -218,9 +218,9 @@ app.patch("/todo/:id", function (req, res) {
       updateTodo.done = req.body.done;
     }
 
-    if (req.body.notes !== null && req.body.notes !== undefined) {
-      updateTodo.notes = req.body.notes;
-    }
+    // if (req.body.notes !== null && req.body.notes !== undefined) {
+    //   updateTodo.notes = req.body.notes;
+    // }
   
     Todo.updateOne(
       { _id: req.params.id },
@@ -258,7 +258,7 @@ app.put("/todo/:id", function (req, res) {
       description: req.body.description || "",
       done: req.body.done || false,
       deadline: req.body.deadline || new Date(),
-      notes: req.body.notes || ""
+      // notes: req.body.notes || ""
     };
   
     if (

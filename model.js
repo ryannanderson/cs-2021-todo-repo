@@ -5,7 +5,7 @@ const todoSchema = mongoose.Schema({
     description: String,
     done: Boolean,
     deadline: Date,
-    notes: [{ body: String }],
+    // notes: [{ body: String }],
 });
 
 // const notesSchema = mongoose.Schema({
