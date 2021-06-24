@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+#wrapper {
+    display: grid;
+    grid-auto-rows: minmax(0px, auto);
+    grid-template-columns: minmax(0px, 1fr) repeat(6, minmax(0, 175px)) minmax(0px, 1fr);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.15rem;
+    font-size: 1rem;
+}
+
+header {
+    background-color: #607cab;
+    color: white;
+    grid-column: 2 / 8;
+    grid-row: 1 / 2;
+}
+
+#bar {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    background-color: #607cab;
+}
+main {
+    grid-column: 2 / 8;
+    padding: 7rem;
+}
+
+
+
+.your-todo {
+    margin-top: 2rem;
+    padding: 0.5rem;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 700;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+}
+
+li {
+    list-style: none;
+}
+
+
+
+.create-button {
+    width: 8rem;
+    padding: 0.75rem;
+    background-color:#607cab;
+    color: white;
+    border-radius: 50px;
+    margin-top: 5px;
+    border: 1px solid;
+}
+
+.create-button:hover, .list-button:hover, .delete-button:hover {
+    cursor: pointer;
+    background-color: #3d4f6e;
+}
+
+.list-button {
+    color: white;
+    background-color: #607cab;
+    border: 1px solid;
+    border-radius: 30px;
+    width: 4rem;
+    padding: 0.5rem;
+    margin: 5px;
+    float: left;
+}
+
+.delete-button {
+    color: white;
+    background-color: #607cab;
+    border: 1px solid;
+    border-radius: 30px;
+    width: 4rem;
+    padding: 0.5rem;
+    margin: 5px;
+}
+
+.save-button {
+    color: white;
+    background-color: #607cab;
+    border: 1px solid;
+    border-radius: 30px;
+    width: 4rem;
+    padding: 0.5rem;
+    margin-top: 20px;
+}
+
+input {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.done {
+    text-decoration: line-through;
+}

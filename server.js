@@ -10,6 +10,8 @@ const app = express();
 
 
 app.use(cors());
+
+app.use(express.static('static'))
 // const fs
 
 // tell our app to use json (this is an example of a middleware but this one
